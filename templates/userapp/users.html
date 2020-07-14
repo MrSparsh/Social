@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1px solid">
+        <thead>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Name</th>
+            <th>ID</th>
+        </thead>
+    {% for user in users %}
+        <tr>
+            {% for key, value in user.items %}
+                {% if key == 'id' %}
+                    <td> <a href="/user/{{value}}"> {{ value }} </a> </td>
+                {% else %}
+                    <td> {{ value }} </td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+    <p> <a href="/user/home/"> Go to home </a> </p>
+</body>
+</html>
